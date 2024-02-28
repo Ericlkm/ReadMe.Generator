@@ -3,6 +3,8 @@ const inquirer = require("inquirer")
 const fs = require("fs")
 const createReadMe = require("./utils/generateMarkdown");
 
+console.log(`\x1b[36m create your own professional README!\x1b[0m`)
+
 // TODO: Create an array of questions for user input
 const questions = [
     {
@@ -21,7 +23,7 @@ const questions = [
     {
         type:"input",
         name:"contribution",
-        message:"Who can contribute to this project?"
+        message:"how can users contribute to this project?"
     },
 
     {
@@ -33,20 +35,20 @@ const questions = [
     {
         type:"input",
         name:"intructions",
-        message:"Provide instructions and examples for use!"
+        message:"Provide instructions for use!"
     },
 
     {
         type:"input",
         name:"usage",
-        message:"Explain usage for this project on why, how and what the reson you're creating this project!",
+        message:"Explain usage for this project on why and what's the reason you're creating this project!",
     },
 
     {
         type:"checkbox",
         name:"license",
-        message:"which license is best for your project?",
-        choices:["MIT","GNU","Apache","MPL"]
+        message:"which license fits best for your project?",
+        choices:["MIT","GNU","Apache","MPL","None of the above"]
     },
 
     {
@@ -66,7 +68,7 @@ const questions = [
 function writeToFile(fileName, data) {
      fs.writeFile(fileName, data,err=>{
         if(err) throw(err)
-        console.log(`\x1b[32m READE complete!\x1b[0m`)
+        console.log(`\x1b[32m READE successfully completed!\x1b[0m`)
     })
 }
 
